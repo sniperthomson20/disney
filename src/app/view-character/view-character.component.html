@@ -1,0 +1,154 @@
+<div class="container mb-5">
+
+    <div class="card p-3 mb-3 ">
+        <div class="row mb-3">
+
+            <div class="col-md-6 col-sm-12">
+                <figure class="figure d-block text-center">
+                    <img [src]="character.imageUrl" class="figure-img img-fluid rounded d-block m-auto" [alt]="character.name" style="width: 100%;object-fit: contain;max-height: 300px;">
+                    <figcaption class="figure-caption"> {{character.name}} </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Name :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.name}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Films :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.films.length}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Short Films :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.shortFilms.length}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> TV Shows :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.tvShows.length}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Video Games :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.videoGames.length}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Park Attractions :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.parkAttractions.length}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Allies :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.allies.length}} </span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <h6> Enemies :</h6>
+                    </div>
+                    <div class="col-6">
+                        <span> {{character.enemies.length}} </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row" *ngIf="character.films.length > 0 || character.shortFilms.length > 0 || character.tvShows.length > 0 || character.videoGames.length > 0 || character.parkAttractions.length > 0 || character.allies.length > 0 || character.enemies.length > 0">
+
+            <!-- Films -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.films.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> Films </li>
+                    <li class="list-group-item" *ngFor="let film of character.films"> {{film}} </li>
+                </ul>
+            </div>
+
+            <!-- Short Films -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.shortFilms.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> Short Films </li>
+                    <li class="list-group-item" *ngFor="let shortFilm of character.shortFilms"> {{shortFilm}} </li>
+                </ul>
+            </div>
+
+            <!-- TV Shows -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.tvShows.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> TV Shows </li>
+                    <li class="list-group-item" *ngFor="let tvShow of character.tvShows"> {{tvShow}} </li>
+                </ul>
+            </div>
+
+            <!-- Video Game -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.videoGames.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> Video Game </li>
+                    <li class="list-group-item" *ngFor="let videoGame of character.videoGames"> {{videoGame}} </li>
+                </ul>
+            </div>
+
+            <!-- Park Attraction -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.parkAttractions.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> Park Attraction </li>
+                    <li class="list-group-item" *ngFor="let parkAttraction of character.parkAttractions"> {{parkAttraction}} </li>
+                </ul>
+            </div>
+
+            <!-- Allies -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.allies.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> Allies </li>
+                    <li class="list-group-item" *ngFor="let ally of character.allies"> {{ally}} </li>
+                </ul>
+            </div>
+
+            <!-- Enemies -->
+            <div class="col-md-4 col-sm-12" *ngIf="character.enemies.length > 0">
+                <ul class="list-group shadow-sm rounded-0">
+                    <li class="list-group-item active" aria-current="true"> Enemies </li>
+                    <li class="list-group-item" *ngFor="let enemy of character.enemies"> {{enemy}} </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

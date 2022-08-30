@@ -1,0 +1,12 @@
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    vertical-align: middle !important;
+}
+
+.clickable-row {
+    cursor: pointer;
+    &:hover {
+        background-color: var(--bs-light);
+    }
+}

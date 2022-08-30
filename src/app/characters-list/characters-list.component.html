@@ -1,0 +1,56 @@
+<div class="container-fluid p-3 card">
+
+    <h4 class="mb-3 text-black-50"> Disney Characters List </h4>
+
+    <div class="table-responsive">
+
+
+        <table mat-table [dataSource]="characters" class="table ">
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> # </th>
+                <td mat-cell *matCellDef="let char"> {{char._id}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let char"> {{char.name}} </td>
+            </ng-container>
+
+            <!-- Films Column -->
+            <ng-container matColumnDef="films">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> Films </th>
+                <td mat-cell *matCellDef="let char" class="text-center"> <span class="badge bg-secondary"> {{char.films.length}} </span> </td>
+            </ng-container>
+
+            <!-- TV Shows Column -->
+            <ng-container matColumnDef="tvShows">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> TV Shows </th>
+                <td mat-cell *matCellDef="let char" class="text-center"> <span class="badge bg-secondary"> {{char.tvShows.length}} </span> </td>
+            </ng-container>
+
+            <!-- Video Games Column -->
+            <ng-container matColumnDef="videoGames">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> Video Games </th>
+                <td mat-cell *matCellDef="let char" class="text-center"> <span class="badge bg-secondary"> {{char.videoGames.length}} </span> </td>
+            </ng-container>
+
+            <!-- View Column -->
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> View Image </th>
+                <td mat-cell *matCellDef="let char" class="text-center">
+                    <a [href]="char.imageUrl" target="_blank" (click)="$event.stopPropagation()"> <i class="fa-solid fa-file-image"></i> </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let char; columns: displayedColumns;" class="clickable-row" (click)="charClicked(char._id)"></tr>
+        </table>
+
+    </div>
+
+    <mat-paginator [length]="totalPages" [pageSize]="totalElements" (page)="pageChange($event)" aria-label="Select page">
+    </mat-paginator>
+</div>
